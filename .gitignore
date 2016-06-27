@@ -1,2 +1,5 @@
 # Ignore the .idea file for Jetbrains IDEs
 .idea/
+
+# Ingore the files in teh node_modules folder (used for grunt etc)
+node_modules/

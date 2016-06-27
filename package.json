@@ -1,0 +1,22 @@
+{
+  "name": "TheRatsNest_Screeps-AI",
+  "version": "0.0.0",
+  "description": "Screeps AI by the Rats Nest",
+  "license": "UNLICENSED",
+  "contributors": [
+    "Nik 'Eastborn' van den Hout <eastborn@shadowimage.org>",
+    "",
+    ""
+  ],
+  "main": "GruntFile.js",
+  "scripts": {
+    "start": "./node_modules/.bin/grunt screeps"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-screeps": "^1.2.1"
+  },
+  "dependencies": {
+
+  }
+}
