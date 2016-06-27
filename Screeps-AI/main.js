@@ -39,34 +39,37 @@ main.getRooms = function(){
 
 main.loopRoles = function(creep) {
     if (creeps.memory.role === 'archer'){
-        //WIP
+        CreepArcher();
     }
     if (creep.memory.role == 'builder'){
-        //WIP
+        CreepBuilder();
     }
     if (creep.memory.role == 'carrier'){
-        //WIP
+        CreepCarrier();
     }
     if (creep.memory.role == 'guardian'){
-        //WIP
+        Creepguardian();
     }
     if (creep.memory.role == 'harverster'){
-        //WIP
+        CreepHarverster();
     }
     if (creep.memory.role == 'miner'){
-        //WIP
+        CreepMiner();
     }
     if (creep.memory.role == 'nobleman'){
-        //WIP
+        CreepNobleman();
+    }
+    if (creep.memory.role == 'repairman'){
+        CreepRepairman();
     }
     if (creep.memory.role == 'transporter'){
-        //WIP
+        CreepTransporter();
     }
     if (creep.memory.role == 'upgrader'){
-        //WIP
+        CreepUpgrader();
     }
     if (creep.memory.role == 'warrior'){
-        //WIP
+        CreepWarrior();
     }
 }
 
