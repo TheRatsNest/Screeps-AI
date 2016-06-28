@@ -4,6 +4,6 @@
 
 // DO NOT COMMIT THIS FILE!!!
 module.exports = {
-    email: 'YOUR EMAIL',
-    password: 'YOUR PASSWORD'
+    email: 'eastborn@shadowimage.org',
+    password: 'Kokcrigvof04'
 };
