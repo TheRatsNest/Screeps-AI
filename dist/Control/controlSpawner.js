@@ -10,6 +10,17 @@ spawner.getMaxEnergy = function(){
     return this.room.energyCapacityAvailable;
 }
 
+spawner.setBodyPartsCost = function(){
+    this.memory.population.bodyPartsCost.bodyMove = 50;
+    this.memory.population.bodyPartsCost.bodyWork = 100;
+    this.memory.population.bodyPartsCost.bodyCarry = 50;
+    this.memory.population.bodyPartsCost.bodyAttack = 80;
+    this.memory.population.bodyPartsCost.bodyRangedAttack = 150;
+    this.memory.population.bodyPartsCost.bodyHeal = 250;
+    this.memory.population.bodyPartsCost.bodyClaim = 600;
+    this.memory.population.bodyPartsCost.bodyTough = 10;
+}
+
 spawner.setMemory = function(){
     this.memory.population.archers = 0;
     this.memory.population.builders = 0;
