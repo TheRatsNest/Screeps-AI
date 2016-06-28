@@ -10,11 +10,10 @@
   ],
   "main": "GruntFile.js",
   "scripts": {
-    "start": "./node_modules/.bin/grunt screeps"
+    "start": "./node_modules/.bin/grunt screepsTRN"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-screeps": "^1.2.1"
+    "grunt": "^1.0.1"
   },
   "dependencies": {
 

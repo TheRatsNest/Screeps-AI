@@ -1,24 +1,24 @@
 //loading creep roles | total : 10
-var CreepArcher = require('./Creeps/creepArcher');
-var CreepBuilder = require('./Creeps/creepBuilder');
-var CreepCarrier = require('./Creeps/creepCarrier');
-var CreepGuardian = require('./Creeps/creepGuardian');
-var CreepHarvester = require('./Creeps/creepHarvester');
-var CreepMiner = require('./Creeps/creepMiner');
-var CreepNobleman = require('./Creeps/creepNobleman');
-var CreepRepairman = require('./Creeps/creepRepairman');
-var CreepTransporter = require('./Creeps/creepTransporter');
-var CreepUpgrader = require('./Creeps/creepUpgrader');
-var CreepWarrior = require('./Creeps/creepWarrior');
+var CreepArcher = require('creepArcher');
+var CreepBuilder = require('creepBuilder');
+var CreepCarrier = require('creepCarrier');
+var CreepGuardian = require('creepGuardian');
+var CreepHarvester = require('creepHarvester');
+var CreepMiner = require('creepMiner');
+var CreepNobleman = require('creepNobleman');
+var CreepRepairman = require('creepRepairman');
+var CreepTransporter = require('creepTransporter');
+var CreepUpgrader = require('creepUpgrader');
+var CreepWarrior = require('creepWarrior');
 
 //loading structure roles | total : 2
-var structureTower = require('./Structure/StructureTower');
-var structureLink = require('./Structure/StructureLink');
+var structureTower = require('StructureTower');
+var structureLink = require('StructureLink');
 
 //loading control files | total : 2
-var ControlSpawner = require('./Control/controlSpawner');
-var ControlConstruction = require('./Control/controlConstruction');
-var ControlSpawner = require('./Control/controlSpawner');
+var ControlSpawner = require('controlSpawner');
+var ControlConstruction = require('controlConstruction');
+var ControlSpawner = require('controlSpawner');
 
 var main = {};
 
@@ -84,10 +84,12 @@ main.loopTowers = function(room){
 main.loopRooms = function(){
     var rooms = main.getRooms();
     for(let i in rooms){
+        /*
         var room = rooms[roomName];
         var spawn = room.getSpawn() //WIP -> controlRoom
         ControlSpawner();
         main.loopTowers();
+        */
     }
 };
 
