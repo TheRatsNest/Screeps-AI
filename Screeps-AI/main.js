@@ -1,24 +1,24 @@
 //loading creep roles | total : 10
-var CreepArcher = require('creepArcher');
-var CreepBuilder = require('creepBuilder');
-var CreepCarrier = require('creepCarrrier');
-var Creepguardian = require('creepGuardian');
-var CreepHarverster = require('creepHarverster');
-var CreepMiner = require('creepMiner');
-var CreepNobleman = require('creepNobleman');
-var CreepRepairman = require('creepRepairman');
-var CreepTransporter = require('creepTransporter');
-var CreepUpgrader = require('creepUpgrader');
-var CreepWarrior = require('creepWarrior');
+var CreepArcher = require('./Creeps/creepArcher');
+var CreepBuilder = require('./Creeps/creepBuilder');
+var CreepCarrier = require('./Creeps/creepCarrier');
+var CreepGuardian = require('./Creeps/creepGuardian');
+var CreepHarvester = require('./Creeps/creepHarvester');
+var CreepMiner = require('./Creeps/creepMiner');
+var CreepNobleman = require('./Creeps/creepNobleman');
+var CreepRepairman = require('./Creeps/creepRepairman');
+var CreepTransporter = require('./Creeps/creepTransporter');
+var CreepUpgrader = require('./Creeps/creepUpgrader');
+var CreepWarrior = require('./Creeps/creepWarrior');
 
 //loading structure roles | total : 2
-var structureTower = require('StructureTower');
-var structureLink = require('StructureLink');
+var structureTower = require('./Structure/StructureTower');
+var structureLink = require('./Structure/StructureLink');
 
 //loading control files | total : 2
-var ControlSpawner = require('controlSpawner');
-var ControlConstruction = require('controlConstruction');
-var ControlRoom = require('controlRoom');
+var ControlSpawner = require('./Control/controlSpawner');
+var ControlConstruction = require('./Control/controlConstruction');
+var ControlSpawner = require('./Control/controlSpawner');
 
 var main = {};
 
@@ -41,10 +41,10 @@ main.loopRoles = function(creep) {
         CreepCarrier();
     }
     if (creep.memory.role == 'guardian'){
-        Creepguardian();
+        CreepGuardian();
     }
     if (creep.memory.role == 'harverster'){
-        CreepHarverster();
+        CreepHarvester();
     }
     if (creep.memory.role == 'miner'){
         CreepMiner();
@@ -75,10 +75,10 @@ main.loopCreeps = function(){
 };
 
 main.loopTowers = function(room){
-    var towers = ControlRoom.getTowers(); //WIP -> controlRoom
+    /*var towers = ControlRoom.getTowers(); //WIP -> controlRoom
     for (let i in towers){
         //wip
-    }
+    }*/
 };
 
 main.loopRooms = function(){
