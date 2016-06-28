@@ -3,6 +3,3 @@
 
 # Ingore the files in teh node_modules folder (used for grunt etc)
 node_modules/
-
-# Ignore the secrets file in the future
-Secrets.js

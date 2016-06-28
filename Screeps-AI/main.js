@@ -22,13 +22,20 @@ var ControlRoom = require('controlRoom');
 
 var main = {};
 
+//Use this to clear old memory
+/*for(var i in Memory.creeps) {
+    if(Game.creeps[i]){
+        delete Memory.creeps[i]
+    }
+}*/
+
 main.getCreeps = function(){
     return Game['creeps'];
-};
+}
 
 main.getRooms = function(){
     return Game['rooms'];
-};
+}
 
 main.loopRoles = function(creep) {
     if (creeps.memory.role === 'archer'){
@@ -64,7 +71,7 @@ main.loopRoles = function(creep) {
     if (creep.memory.role == 'warrior'){
         CreepWarrior();
     }
-};
+}
 
 main.loopCreeps = function(){
     var creeps = main.getCreeps();
@@ -72,14 +79,14 @@ main.loopCreeps = function(){
         var creep = creeps[creepName];
         main.loopRoles(creep);
     }
-};
+}
 
 main.loopTowers = function(room){
     var towers = ControlRoom.getTowers(); //WIP -> controlRoom
     for (let i in towers){
         //wip
     }
-};
+}
 
 main.loopRooms = function(){
     var rooms = main.getRooms();
@@ -89,54 +96,7 @@ main.loopRooms = function(){
         ControlSpawner();
         main.loopTowers();
     }
-};
+}
 
 main.loopRooms();
 main.loopCreeps();
-
-/**
- * Options for the script
- * @type {{clearMemory: boolean}} When true the script will try to remove memory on startup
- */
-var options = {
-    clearMemory: false
-};
-
-/**
- * Set up function for the script, should run once every time the script is initialized.
- */
-main.setup = function() {
-    if (options && options.clearMemory) {
-        let delMem = function(subset) {
-                let counter = 0;
-                for (var x in Memory[subset]) {
-                    if (!Game[subset][x]) {
-                        counter++;
-                        delete Memory[subset][x];
-                    }
-                }
-                return counter;
-            },
-            memories = _(['constructionSites', 'creeps', 'flags', 'rooms', 'spawns', 'structures']), // The types of memory to remove
-            removed = memories.reduce(function(result, val) { return result + delMem(val); });
-
-        // Show in console how many memory entries were removed
-        console.log('removed '+removed+ 'entries from memory');
-    }
-
-    //TODO continue setup
-};
-
-/**
- * Loop function of the script, should run once every tick.
- */
-main.loop = function() {
-    //TODO create loop function
-};
-
-// Set up the code for the first time. (might run multiple times)
-main.setup();
-// Main code, will loop every tick.
-module.exports.loop = function () {
-    main.loop();
-};
