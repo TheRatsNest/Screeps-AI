@@ -36,7 +36,7 @@ spawner.setMemory = function(){
     this.memory.population.max.builders = 0;
     this.memory.population.max.carriers = 0;
     this.memory.population.max.guardians = 0;
-    this.memory.population.max.maxers = 0;
+    this.memory.population.max.miners = 0;
     this.memory.population.max.noblemen = 0;
     this.memory.population.max.repairmen = 0;
     this.memory.population.max.transporters = 0;
@@ -44,6 +44,39 @@ spawner.setMemory = function(){
     this.memory.population.max.warriors = 0;
 }
 
-spawner.setPopulation = function(){
-    if()
+spawner.checkPopulation = function(populationCount,index){
+    if(populationCount < this.room.memory.population.min[index]){
+        switch(index){
+            case 'archers':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_ARCHERS';
+                break;
+            case 'builders':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_BUILDERS';
+                break;
+            case 'carriers':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_CARRIERS';
+                break;
+            case 'guardians':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_GUARDIANS';
+                break;
+            case 'miners':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_MINERS';
+                break;
+            case 'noblemen':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_NOBLEMEN';
+                break;
+            case 'repairmen':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_REPAIRMEN';
+                break;
+            case 'transporters':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_TRANSPORTERS';
+                break;
+            case 'upgraders':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_UPGRADERS';
+                break;
+            case 'warriors':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_WARRIORS';
+                break;
+        }
+    }
 }
