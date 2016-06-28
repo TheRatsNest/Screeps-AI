@@ -36,46 +36,45 @@ main.loopRoles = function(creep) {
         return
     }
 
-    if (creep.memory.role === 'remove') {
-        // Remove this creep from our control (basically when creep is dead or is not ours)
-    }
-
-    if (creep.memory.role === 'unknown') {
-        // Make sure to assign new role
-    }
-
-    if (creeps.memory.role === 'archer'){
-        CreepArcher();
-    }
-    if (creep.memory.role == 'builder'){
-        CreepBuilder();
-    }
-    if (creep.memory.role == 'carrier'){
-        CreepCarrier();
-    }
-    if (creep.memory.role == 'guardian'){
-        CreepGuardian();
-    }
-    if (creep.memory.role == 'harverster'){
-        CreepHarvester();
-    }
-    if (creep.memory.role == 'miner'){
-        CreepMiner();
-    }
-    if (creep.memory.role == 'nobleman'){
-        CreepNobleman();
-    }
-    if (creep.memory.role == 'repairman'){
-        CreepRepairman();
-    }
-    if (creep.memory.role == 'transporter'){
-        CreepTransporter();
-    }
-    if (creep.memory.role == 'upgrader'){
-        CreepUpgrader();
-    }
-    if (creep.memory.role == 'warrior'){
-        CreepWarrior();
+    switch (creep.memory.role) {
+        case 'remove':
+            // Remove this creep from our control (basically when creep is dead or is not ours)
+            break;
+        case 'unknown':
+            // Make sure to assign new role
+            break;
+        case 'archer':
+            // Execute Archer code
+            break;
+        case 'builder':
+            // Execute Archer code
+            break;
+        case 'carrier':
+            // Execute Archer code
+            break;
+        case 'guardian':
+            // Execute Archer code
+            break;
+        case 'miner':
+            // Execute Archer code
+            break;
+        case 'nobleman':
+            // Execute Archer code
+            break;
+        case 'repairman':
+            // Execute Archer code
+            break;
+        case 'transporter':
+            // Execute Archer code
+            break;
+        case 'upgrader':
+            // Execute Archer code
+            break;
+        case 'warrior':
+            // Execute Archer code
+            break;
+        default:
+            // WHAT TO DO WITH DEFAULTZZZZZZ!!!??!
     }
 };
 
@@ -153,6 +152,6 @@ main.loop = function() {
 // Set up the code for the first time. (might run multiple times)
 main.setup();
 // Main code, will loop every tick.
-    module.exports.loop = function () {
-        main.loop();
-    };
+module.exports.loop = function () {
+    main.loop();
+};

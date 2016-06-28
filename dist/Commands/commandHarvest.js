@@ -36,5 +36,7 @@ module.exports = function (creep, target) {
         case -12: // ERR_NO_BODYPART
             creep.memory.role = 'unknown';
             return false;
+        default:
+            return false;
     }
 };
