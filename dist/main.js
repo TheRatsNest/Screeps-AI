@@ -31,6 +31,19 @@ main.getRooms = function(){
 };
 
 main.loopRoles = function(creep) {
+    if (creep.memory.idle && creep.memory.idle > 0) {
+        creep.memory.idle = creep.memory.idle - 1;
+        return
+    }
+
+    if (creep.memory.role === 'remove') {
+        // Remove this creep from our control (basically when creep is dead or is not ours)
+    }
+
+    if (creep.memory.role === 'unknown') {
+        // Make sure to assign new role
+    }
+
     if (creeps.memory.role === 'archer'){
         CreepArcher();
     }
