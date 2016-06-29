@@ -1,3 +1,5 @@
+var CommandMove = require('commandMove')
+
 /**
  * Command to let a creep repair a target
  * @param creep {Creep} The creep that is expected to repair
@@ -20,18 +22,16 @@ function commandRepair(creep, target) {
         case -1: // ERR_NOT_OWNER
             creep.memory.role = 'remove';
             return -1;
-        case -4: // ERR_BUSY
-            return -4;
-        case -6: // ERR_NOT_ENOUGH_RESOURCES
-            return -6;
-        case -7: // ERR_INVALID_TARGET
-            return -7;
         case -9: // ERR_NOT_IN_RANGE
-            creep.moveTo(target);
+            CommandMove(creep, target);
             return -9;
         case -12: // ERR_NO_BODYPART
             creep.memory.role = 'unknown';
             return -12;
+        case -4: // ERR_BUSY
+        case -6: // ERR_NOT_ENOUGH_RESOURCES
+        case -7: // ERR_INVALID_TARGET
+            return result;
         default:
             return false;
     }

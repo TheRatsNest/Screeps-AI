@@ -1,3 +1,5 @@
+var CommandMove = require('commandMove')
+
 /**
  * Command to let a creep harvest a target
  * @param creep {Creep} The creep that is expected to harvest
@@ -21,22 +23,21 @@ function commandHarvest(creep, target) {
         case -1: // ERR_NOT_OWNER
             creep.memory.role = 'remove';
             return -1;
-        case -4: // ERR_BUSY
-            return -4;
         case -5: // ERR_NOT_FOUND
             creep.memory.role = 'unknown';
             return -5;
         case -6: // ERR_NOT_ENOUGH_RESOURCES
             creep.memory.idle = target.ticksToRegeneration;
             return -6;
-        case -7: // ERR_INVALID_TARGET
-            return -7;
         case -9: // ERR_NOT_IN_RANGE
-            creep.moveTo(target);
+            CommandMove(creep, target);
             return -9;
         case -12: // ERR_NO_BODYPART
             creep.memory.role = 'unknown';
             return -12;
+        case -4: // ERR_BUSY
+        case -7: // ERR_INVALID_TARGET
+            return result;
         default:
             return false;
     }

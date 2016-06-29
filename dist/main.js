@@ -35,7 +35,7 @@ main.loopRoles = function(creep) {
         creep.memory.idle = creep.memory.idle - 1;
         return
     }
-
+    
     switch (creep.memory.role) {
         case 'remove':
             // Remove this creep from our control (basically when creep is dead or is not ours)
@@ -147,6 +147,7 @@ main.setup = function() {
 * Loop function of the script, should run once every tick.
 */
 main.loop = function() {
+    PathFinder.use(true);
     //TODO create loop function
 };
 // Set up the code for the first time. (might run multiple times)
