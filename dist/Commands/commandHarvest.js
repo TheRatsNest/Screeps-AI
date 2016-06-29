@@ -27,7 +27,7 @@ function commandHarvest(creep, target) {
             creep.memory.role = 'unknown';
             return -5;
         case -6: // ERR_NOT_ENOUGH_RESOURCES
-            creep.memory.idle = target.ticksToRegeneration
+            creep.memory.idle = target.ticksToRegeneration;
             return -6;
         case -7: // ERR_INVALID_TARGET
             return -7;
