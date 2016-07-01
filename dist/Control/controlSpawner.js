@@ -169,43 +169,43 @@ spawner.spawning = function(){
                     spawner.loopCreeps();
                     switch(this.room.memory.populationStatus){
                         case 'ERR_NOT_ENOUGH_ARCHERS':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'archer');
                             break;
                         case 'ERR_NOT_ENOUGH_BUILDERS':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'builder');
                             break;
                         case 'ERR_NOT_ENOUGH_CARRIERS':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'carrier');
                             break;
                         case 'ERR_NOT_ENOUGH_GUARDIANS':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'guardian');
                             break;
                         case 'ERR_NOT_ENOUGH_MINERS':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'miner');
                             break;
                         case 'ERR_NOT_ENOUGH_NOBLEMEN':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'nobleman');
                             break;
                         case 'ERR_NOT_ENOUGH_REPAIRMEN':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'repairman');
                             break;
                         case 'ERR_NOT_ENOUGH_TRANSPORTERS':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'transporter');
                             break;
                         case 'ERR_NOT_ENOUGH_UPGRADERS':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'upgrader');
                             break;
                         case 'ERR_NOT_ENOUGH_WARRIORS':
-                            let bleuprint = //TODO create blueprint function in creepArcher
+                            let blueprint = //TODO create blueprint function in creepArcher
                             spawner.spawnCreep(blueprint, 'warrior');
                             break;
                     }
