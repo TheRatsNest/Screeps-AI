@@ -44,33 +44,43 @@ main.loopRoles = function(creep) {
             // Make sure to assign new role
             break;
         case 'archer':
+            this.memory.population.archer ++;
             // Execute Archer code
             break;
         case 'builder':
+            this.memory.population.builder ++;
             // Execute Archer code
             break;
         case 'carrier':
+            this.memory.population.carrier ++;
             // Execute Archer code
             break;
         case 'guardian':
+            this.memory.population.guardian ++;
             // Execute Archer code
             break;
         case 'miner':
+            this.memory.population.miner ++;
             // Execute Archer code
             break;
         case 'nobleman':
+            this.memory.population.nobleman ++;
             // Execute Archer code
             break;
         case 'repairman':
+            this.memory.population.repairman ++;
             // Execute Archer code
             break;
         case 'transporter':
+            this.memory.population.transporter ++;
             // Execute Archer code
             break;
         case 'upgrader':
+            this.memory.population.upgrader ++;
             // Execute Archer code
             break;
         case 'warrior':
+            this.memory.population.warrior ++;
             // Execute Archer code
             break;
         default:

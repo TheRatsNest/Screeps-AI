@@ -11,6 +11,14 @@ spawner.getMaxEnergy = function(){
     return this.room.energyCapacityAvailable;
 }
 
+spawner.getCreeps = function(){
+    return this.room['creeps'];
+}
+
+spawner.getSpawn = function(){
+    return this.room.spawns;
+}
+
 spawner.setBodyPartsCost = function(){
     this.memory.population.bodyPartsCost.bodyMove = 50;
     this.memory.population.bodyPartsCost.bodyWork = 100;
@@ -65,8 +73,16 @@ spawner.loopDeadCreeps = function(){
     }
 }
 
-spawner.checkPopulation = function(populationCount,index){
-    if(populationCount < this.room.memory.population.min[index]){
+spawner.loopCreeps = function(){
+    var creeps = spawner.getCreeps;
+    for(let i in creeps){
+        var creep = creeps[i];
+        spawner.checkPopulation(i);
+    }
+}
+
+spawner.checkPopulation = function(index){
+    if(this.room.memory.population[index] < this.room.memory.population.min[index]){
         switch(index){
             case 'archers':
                 this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_ARCHERS';
@@ -99,7 +115,7 @@ spawner.checkPopulation = function(populationCount,index){
                 this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_WARRIORS';
                 break;
         }
-    } else if(populationCount < this.room.memory.population.max[index]){
+    } else if(this.room.memory.population[index] < this.room.memory.population.max[index]){
         switch(index){
             case 'archers':
                 this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_ARCHERS';
@@ -135,6 +151,11 @@ spawner.checkPopulation = function(populationCount,index){
     }
 }
 
+spawner.spawnCreep = function(blueprint, role){
+    var spawn = spawner.getSpawn();
+    Game.spawns.spawn.createCreep(blueprint, undefined,     {role:role, home:this.room);
+}
+
 spawner.spawning = function(){
     let spawning = false;
     for (let i in Game.spawns){
@@ -144,7 +165,51 @@ spawner.spawning = function(){
         }
         if(Game.time % 10 == 0){
             if(!spawning){
-                //TODO spawn new creep function
+                if(spawner.getEnergyAvailable >= spawner.getMaxEnergy){
+                    spawner.loopCreeps();
+                    switch(this.room.memory.populationStatus){
+                        case 'ERR_NOT_ENOUGH_ARCHERS':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'archer');
+                            break;
+                        case 'ERR_NOT_ENOUGH_BUILDERS':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'builder');
+                            break;
+                        case 'ERR_NOT_ENOUGH_CARRIERS':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'carrier');
+                            break;
+                        case 'ERR_NOT_ENOUGH_GUARDIANS':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'guardian');
+                            break;
+                        case 'ERR_NOT_ENOUGH_MINERS':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'miner');
+                            break;
+                        case 'ERR_NOT_ENOUGH_NOBLEMEN':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'nobleman');
+                            break;
+                        case 'ERR_NOT_ENOUGH_REPAIRMEN':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'repairman');
+                            break;
+                        case 'ERR_NOT_ENOUGH_TRANSPORTERS':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'transporter');
+                            break;
+                        case 'ERR_NOT_ENOUGH_UPGRADERS':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'upgrader');
+                            break;
+                        case 'ERR_NOT_ENOUGH_WARRIORS':
+                            let bleuprint = //TODO create blueprint function in creepArcher
+                            spawner.spawnCreep(blueprint, 'warrior');
+                            break;
+                    }
+                }
             }
         }
         if(!spawning){
