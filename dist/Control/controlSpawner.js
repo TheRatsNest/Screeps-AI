@@ -1,4 +1,5 @@
 var ControlRoom = require('controlRoom');
+var Main = require('main');
 
 var spawner = {};
 
@@ -55,6 +56,15 @@ spawner.setMemory = function(){
     this.memory.population.max.warriors = 0;
 }
 
+spawner.loopDeadCreeps = function(){
+    for(let i in Memory.creeps){
+        if(!Game.creeps[i]){
+            delete Memory.creeps[i];
+            console.log('Performing CR on creep: '+i);
+        }
+    }
+}
+
 spawner.checkPopulation = function(populationCount,index){
     if(populationCount < this.room.memory.population.min[index]){
         switch(index){
@@ -88,6 +98,59 @@ spawner.checkPopulation = function(populationCount,index){
             case 'warriors':
                 this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_WARRIORS';
                 break;
+        }
+    } else if(populationCount < this.room.memory.population.max[index]){
+        switch(index){
+            case 'archers':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_ARCHERS';
+                break;
+            case 'builders':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_BUILDERS';
+                break;
+            case 'carriers':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_CARRIERS';
+                break;
+            case 'guardians':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_GUARDIANS';
+                break;
+            case 'miners':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_MINERS';
+                break;
+            case 'noblemen':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_NOBLEMEN';
+                break;
+            case 'repairmen':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_REPAIRMEN';
+                break;
+            case 'transporters':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_TRANSPORTERS';
+                break;
+            case 'upgraders':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_UPGRADERS';
+                break;
+            case 'warriors':
+                this.room.memory.populationStatus = 'ERR_NOT_ENOUGH_WARRIORS';
+                break;
+        }
+    }
+}
+
+spawner.spawning = function(){
+    let spawning = false;
+    for (let i in Game.spawns){
+        let spawn = Game.spawns[i];
+        if(spawn.spawning){
+            spawning = true;
+        }
+        if(Game.time % 10 == 0){
+            if(!spawning){
+                //TODO spawn new creep function
+            }
+        }
+        if(!spawning){
+            if(Game.time % 50 == 0){
+                spawner.loopDeadCreeps();
+            }
         }
     }
 }
